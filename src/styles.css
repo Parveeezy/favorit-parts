@@ -1,0 +1,373 @@
+/* Тема приложения: несколько переменных поверх Bootstrap. */
+:root {
+  --app-accent: #2b59c3;
+  --app-accent-hover: #234aa5;
+  --app-accent-rgb: 43, 89, 195;
+  --app-accent-soft: #eef3fd;
+  --app-bg: #f3f5f8;
+  --app-surface: #fff;
+  --app-border: #e2e6ed;
+  --app-muted: #5f6b7a; /* контраст на белом ≈ 5.4:1 */
+  --app-radius: 14px;
+  --app-radius-sm: 10px;
+  --app-space: 1rem;
+  --app-shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 6px 20px rgba(16, 24, 40, 0.06);
+  --app-shadow-hover: 0 2px 4px rgba(16, 24, 40, 0.06), 0 10px 28px rgba(16, 24, 40, 0.1);
+
+  --bs-body-font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  --bs-body-bg: var(--app-bg);
+  --bs-secondary-color: var(--app-muted);
+  --bs-border-color: var(--app-border);
+  --bs-link-color-rgb: var(--app-accent-rgb);
+  --bs-primary-rgb: var(--app-accent-rgb);
+}
+
+/* Акцентный цвет для кнопок и полей Bootstrap */
+.btn-primary {
+  --bs-btn-bg: var(--app-accent);
+  --bs-btn-border-color: var(--app-accent);
+  --bs-btn-hover-bg: var(--app-accent-hover);
+  --bs-btn-hover-border-color: var(--app-accent-hover);
+  --bs-btn-active-bg: var(--app-accent-hover);
+  --bs-btn-active-border-color: var(--app-accent-hover);
+  --bs-btn-disabled-bg: var(--app-accent);
+  --bs-btn-disabled-border-color: var(--app-accent);
+  --bs-btn-focus-shadow-rgb: var(--app-accent-rgb);
+}
+.btn-outline-primary {
+  --bs-btn-color: var(--app-accent);
+  --bs-btn-border-color: var(--app-accent);
+  --bs-btn-hover-bg: var(--app-accent);
+  --bs-btn-hover-border-color: var(--app-accent);
+  --bs-btn-active-bg: var(--app-accent-hover);
+  --bs-btn-focus-shadow-rgb: var(--app-accent-rgb);
+}
+.form-control:focus {
+  border-color: var(--app-accent);
+  box-shadow: 0 0 0 0.25rem rgba(var(--app-accent-rgb), 0.2);
+}
+.badge-accent {
+  background: var(--app-accent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--app-accent);
+  outline-offset: 2px;
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Длинные артикулы в наименованиях без пробелов не должны распирать вёрстку. */
+.break-anywhere,
+.line-clamp-2 {
+  overflow-wrap: anywhere;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+/* Каркас */
+.app-container {
+  max-width: 1120px;
+}
+.app-header {
+  background: var(--app-surface);
+  border-bottom: 1px solid var(--app-border);
+}
+.app-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+.app-subtitle {
+  font-size: 0.8125rem;
+  color: var(--app-muted);
+}
+.app-card {
+  background: var(--app-surface);
+  border-radius: var(--app-radius);
+  box-shadow: var(--app-shadow);
+  padding: var(--app-space);
+}
+@media (min-width: 768px) {
+  .app-card {
+    padding: calc(var(--app-space) * 1.25);
+  }
+}
+@media (min-width: 992px) {
+  .app-card {
+    padding: calc(var(--app-space) * 1.75);
+  }
+}
+.app-divider {
+  margin: calc(var(--app-space) * 1.25) 0;
+  border-color: var(--app-border);
+  opacity: 1;
+}
+.section-title {
+  font-size: 1.125rem;
+  font-weight: 650;
+  margin-bottom: 0.125rem;
+}
+
+/* Поиск */
+.search-field {
+  position: relative;
+}
+.search-field .form-control {
+  background-color: var(--app-surface);
+  padding-left: 2.75rem;
+  padding-right: 2.75rem;
+  border-radius: var(--app-radius-sm);
+}
+.search-field-icon {
+  position: absolute;
+  left: 0.95rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--app-muted);
+  pointer-events: none;
+}
+.search-field-clear {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  padding: 0.375rem;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--app-muted);
+}
+.search-field-clear:hover {
+  background: var(--app-bg);
+  color: var(--bs-body-color);
+}
+.search-submit {
+  border-radius: var(--app-radius-sm);
+}
+.example-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--app-accent);
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+  font-variant-numeric: tabular-nums;
+}
+.example-link:hover {
+  text-decoration-style: solid;
+}
+
+/* Карточки производителей */
+.brand-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+  height: 100%;
+  min-height: 7.25rem;
+  padding: var(--app-space);
+  text-align: left;
+  color: inherit;
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-sm);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+.brand-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--app-shadow-hover);
+  border-color: rgba(var(--app-accent-rgb), 0.45);
+}
+.brand-card-number {
+  font-variant-numeric: tabular-nums;
+  color: var(--app-muted);
+}
+
+/* Таблица предложений (md+) */
+.offers-table {
+  --bs-table-bg: var(--app-surface);
+  margin-bottom: 0;
+}
+.offers-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--app-muted);
+  white-space: nowrap;
+  background: var(--app-surface);
+  box-shadow: inset 0 -1px 0 var(--app-border);
+}
+/* На планшетах таблице тесно: ужимаем ячейки. */
+@media (max-width: 991.98px) {
+  .offers-table > :not(caption) > * > * {
+    padding-left: 0.375rem;
+    padding-right: 0.375rem;
+  }
+}
+.offers-table .col-toggle {
+  width: 3rem;
+}
+.offers-table .price {
+  font-weight: 600;
+}
+.part-row.is-expandable {
+  cursor: pointer;
+}
+.part-row.is-expandable:hover > td {
+  --bs-table-bg-state: rgba(var(--app-accent-rgb), 0.05);
+}
+.part-row.is-original > td {
+  --bs-table-bg: var(--app-accent-soft);
+}
+.part-row.is-original > td:first-child {
+  border-left: 3px solid var(--app-accent);
+}
+.part-row.is-open > td {
+  border-bottom-color: transparent;
+}
+.warehouses-cell {
+  padding: 0 0 0.75rem 3rem !important;
+}
+.warehouse-table {
+  --bs-table-bg: transparent;
+  font-size: 0.875rem;
+  margin: 0;
+  border-left: 2px solid var(--app-border);
+}
+.warehouse-table th {
+  font-weight: 600;
+  color: var(--app-muted);
+  font-size: 0.75rem;
+}
+
+/* Кнопка-шеврон */
+.chevron-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--app-accent);
+}
+.chevron-btn:hover {
+  background: rgba(var(--app-accent-rgb), 0.1);
+}
+.chevron {
+  transition: transform 0.15s ease;
+}
+[aria-expanded='true'] .chevron {
+  transform: rotate(90deg);
+}
+
+/* Карточки предложений (мобильные) */
+.offer-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.offer-card {
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-sm);
+  background: var(--app-surface);
+  overflow: hidden;
+}
+.offer-card.is-original {
+  background: var(--app-accent-soft);
+  border-left: 4px solid var(--app-accent);
+}
+.offer-card-main {
+  display: block;
+  width: 100%;
+  padding: 0.875rem;
+  text-align: left;
+  color: inherit;
+  background: transparent;
+  border: 0;
+}
+.offer-card-main:focus-visible {
+  outline-offset: -2px;
+}
+.offer-card-price {
+  font-size: 1.125rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.warehouse-list {
+  margin: 0;
+  padding: 0 0.875rem 0.5rem;
+  list-style: none;
+  font-size: 0.875rem;
+}
+.warehouse-list li {
+  padding: 0.5rem 0;
+  border-top: 1px dashed var(--app-border);
+}
+
+.badge-subtle {
+  border: 1px solid var(--app-border);
+  color: var(--app-muted);
+  font-weight: 500;
+  background: transparent;
+}
+
+/* Пустые состояния и ошибки */
+.empty-state {
+  max-width: 26rem;
+  margin: 0 auto;
+  padding: calc(var(--app-space) * 2) var(--app-space);
+  text-align: center;
+}
+.empty-state-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  margin-bottom: 0.75rem;
+  border-radius: 50%;
+  background: var(--app-accent-soft);
+  color: var(--app-accent);
+}
+.empty-state-icon.is-danger {
+  background: #fdecec;
+  color: #b42318;
+}
+
+.min-w-0 {
+  min-width: 0;
+}
+
+/* Скелетоны: светлые плашки вместо тёмно-серых по умолчанию */
+.placeholder-glow .placeholder {
+  background-color: #dfe4eb;
+  opacity: 1;
+}
+.placeholder-glow .placeholder {
+  animation: placeholder-glow 1.6s ease-in-out infinite;
+}

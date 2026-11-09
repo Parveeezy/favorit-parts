@@ -1,15 +1,21 @@
+import EmptyState from './EmptyState'
+import { IconAlert } from './Icons'
+
 export default function ErrorAlert({ message, onRetry }) {
   return (
-    <div
-      className="alert alert-danger d-flex flex-wrap align-items-center justify-content-between gap-2"
+    <EmptyState
       role="alert"
-    >
-      <span>{message}</span>
-      {onRetry && (
-        <button type="button" className="btn btn-outline-danger btn-sm" onClick={onRetry}>
-          Повторить
-        </button>
-      )}
-    </div>
+      danger
+      icon={<IconAlert size={24} />}
+      title="Не удалось загрузить данные"
+      text={message}
+      action={
+        onRetry && (
+          <button type="button" className="btn btn-primary" onClick={onRetry}>
+            Повторить
+          </button>
+        )
+      }
+    />
   )
 }

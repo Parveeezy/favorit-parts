@@ -1,16 +1,30 @@
 import { useSelector } from 'react-redux'
 import BrandList from './components/BrandList'
-import OffersTable from './components/OffersTable'
+import { AppLogo } from './components/Icons'
+import OffersView from './components/OffersView'
 import SearchForm from './components/SearchForm'
 
 export default function App() {
   const selectedBrand = useSelector((state) => state.search.selectedBrand)
 
   return (
-    <div className="container py-4" style={{ maxWidth: 1100 }}>
-      <h1 className="h3 mb-4">Поиск автозапчастей</h1>
-      <SearchForm />
-      {selectedBrand ? <OffersTable /> : <BrandList />}
-    </div>
+    <>
+      <header className="app-header">
+        <div className="container app-container d-flex align-items-center gap-3 py-3">
+          <AppLogo />
+          <div>
+            <h1 className="app-title mb-0">Поиск автозапчастей</h1>
+            <div className="app-subtitle">Цены, остатки и аналоги по прайсу Favorit Parts</div>
+          </div>
+        </div>
+      </header>
+      <main className="container app-container py-3 py-md-4">
+        <div className="app-card">
+          <SearchForm />
+          <hr className="app-divider" />
+          {selectedBrand ? <OffersView /> : <BrandList />}
+        </div>
+      </main>
+    </>
   )
 }

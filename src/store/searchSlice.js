@@ -5,7 +5,8 @@ import { groupOffers, uniqueBrands } from '../utils/normalize'
 const initialRequest = { status: 'idle', data: null, error: null, requestId: null }
 
 const initialState = {
-  query: '',
+  input: '', // текст в поле поиска
+  query: '', // номер последнего отправленного поиска
   brands: initialRequest,
   offers: initialRequest,
   selectedBrand: null,
@@ -49,6 +50,12 @@ const searchSlice = createSlice({
   name: 'search',
   initialState,
   reducers: {
+    setInput(state, action) {
+      state.input = action.payload
+    },
+    clearSearch() {
+      return initialState
+    },
     backToBrands(state) {
       state.selectedBrand = null
       state.offers = initialRequest
@@ -67,5 +74,5 @@ const searchSlice = createSlice({
   },
 })
 
-export const { backToBrands } = searchSlice.actions
+export const { setInput, clearSearch, backToBrands } = searchSlice.actions
 export default searchSlice.reducer
