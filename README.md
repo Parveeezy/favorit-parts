@@ -59,9 +59,5 @@ src/api/favoritApi.js   запросы к /api/price
 src/store/              Redux store и слайс поиска
 src/components/         компоненты интерфейса
 src/utils/              разбор ответа API и форматирование
-<<<<<<< HEAD
-```
-=======
 src/styles.css          переменные темы и стили поверх Bootstrap
 ```
->>>>>>> d6031c2 (Polish UI and add mobile layout for offers)
