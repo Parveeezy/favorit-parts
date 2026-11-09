@@ -66,7 +66,7 @@ export default function SearchForm() {
             autoComplete="off"
             spellCheck="false"
             autoFocus
-            aria-describedby="search-hint"
+            aria-describedby={input ? undefined : 'search-hint'}
             value={input}
             onChange={(event) => dispatch(setInput(event.target.value))}
           />
@@ -89,17 +89,19 @@ export default function SearchForm() {
           Найти
         </button>
       </div>
-      <div id="search-hint" className="form-text">
-        Поиск начнётся сам после ввода. Например:{' '}
-        {EXAMPLES.map((number, index) => (
-          <span key={number}>
-            {index > 0 && ', '}
-            <button type="button" className="example-link" onClick={() => handleExample(number)}>
-              {number}
-            </button>
-          </span>
-        ))}
-      </div>
+      {!input && (
+        <div id="search-hint" className="form-text">
+          Поиск начнётся сам после ввода. Например:{' '}
+          {EXAMPLES.map((number, index) => (
+            <span key={number}>
+              {index > 0 && ', '}
+              <button type="button" className="example-link" onClick={() => handleExample(number)}>
+                {number}
+              </button>
+            </span>
+          ))}
+        </div>
+      )}
     </form>
   )
 }

@@ -36,10 +36,10 @@ export function IconClose(props) {
   )
 }
 
-export function IconChevron(props) {
+export function IconChevronDown(props) {
   return (
     <Icon {...props}>
-      <path d="m9 6 6 6-6 6" />
+      <path d="m6 9 6 6 6-6" />
     </Icon>
   )
 }
@@ -70,15 +70,20 @@ export function IconAlert(props) {
   )
 }
 
-// Логотип приложения: шестерёнка на акцентной плашке.
+// Логотип приложения: гаечный ключ на акцентной плашке.
 export function AppLogo() {
   return (
     <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true" focusable="false">
       <rect width="34" height="34" rx="9" fill="var(--app-accent)" />
-      <g fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round">
-        <circle cx="17" cy="17" r="4" />
-        <path d="M17 7v3M17 24v3M7 17h3M24 17h3M9.9 9.9l2.1 2.1M22 22l2.1 2.1M9.9 24.1l2.1-2.1M22 12l2.1-2.1" />
-      </g>
+      <path
+        transform="translate(5 5)"
+        d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   )
 }

@@ -1,5 +1,5 @@
 import { formatDate, formatPartPrice, formatPrice, plural } from '../utils/format'
-import { IconChevron } from './Icons'
+import { IconChevronDown } from './Icons'
 import { NotRefundBadge, OriginalBadge } from './OfferBadges'
 
 function CardBody({ part, expandable }) {
@@ -10,7 +10,7 @@ function CardBody({ part, expandable }) {
         <span className="fw-semibold">{part.brand}</span>
         <span className="text-body-secondary">{part.number}</span>
         {part.isOriginal && <OriginalBadge />}
-        {expandable && <IconChevron className="chevron ms-auto text-body-secondary" />}
+        {expandable && <IconChevronDown className="chevron ms-auto text-body-secondary" />}
       </span>
       <span className="d-block small mt-1 line-clamp-2">
         {part.name}

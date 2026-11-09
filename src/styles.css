@@ -279,7 +279,7 @@
   transition: transform 0.15s ease;
 }
 [aria-expanded='true'] .chevron {
-  transform: rotate(90deg);
+  transform: rotate(180deg);
 }
 
 /* Карточки предложений (мобильные) */

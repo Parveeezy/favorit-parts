@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import { formatDate, formatPartPrice, formatPrice } from '../utils/format'
-import { IconChevron } from './Icons'
+import { IconChevronDown } from './Icons'
 import { NotRefundBadge, OriginalBadge } from './OfferBadges'
 
 const COLUMNS = 7
@@ -63,7 +63,7 @@ function PartRow({ part, open, onToggle }) {
               onToggle()
             }}
           >
-            <IconChevron className="chevron" />
+            <IconChevronDown className="chevron" />
           </button>
         )}
       </td>
